@@ -1,5 +1,5 @@
 <?php
-namespace booosta\Std_camt;
+namespace booosta\std_camt;
 
 use Genkgo\Camt\Config;
 use Genkgo\Camt\Reader;
