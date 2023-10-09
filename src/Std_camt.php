@@ -8,11 +8,12 @@ use Genkgo\Camt\Camt053\MessageFormat\V02;
 use \booosta\Framework as b;
 b::init_module('std_camt');
 
+
 class Std_camt extends \booosta\base\Module
 {
   use moduletrait_std_camt;
 
-  protected $messageFormat = 'default',
+  protected $messageFormat = 'default';
 
 
   public function __construct(protected $xmlfile = null) {}
