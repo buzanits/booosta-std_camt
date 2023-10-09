@@ -1,0 +1,23 @@
+{
+    "name": "booosta/std_camt",
+    "description": "CAMT XML format reader for the Booosta Framework",
+    "license": "LGPL-3.0-only",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "booosta\\soap\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Peter Buzanits",
+            "email": "peter@icb.at"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.2.0",
+        "genkgo/camt": ">=2.6.0",
+        "booosta/base": "dev-master"
+    }
+}
