@@ -31,10 +31,20 @@ class Std_camt extends \booosta\base\Module
       $config->disableXsdValidation();
     endif;
 
-    $reader = $reader = new Reader($config);
-    $message = $reader->readFile($xmlfile);
+    $reader = new Reader($config);
 
-    $statements = $message->getRecords();
+    try {
+      $message = $reader->readFile($xmlfile);
+      $statements = $message->getRecords();
+    } catch(\Exception $e) {
+      $msg = "ERROR: Could not read XML: " . $e->getMessage();  
+      $this->add_error($msg);
+      $this->error($msg);
+
+      return [];
+    }
+
+
     $entries = [];
     foreach ($statements as $statement) $entries[] = $statement->getEntries();
 
