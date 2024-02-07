@@ -97,13 +97,17 @@ class Std_camt extends \booosta\base\Module
         $address = $creditor?->getRelatedPartyType()?->getAddress()?->getAddressLines();
         $data['creditor_address'] = is_array($address) ? implode(', ', $address) : $address;
         $data['creditor_country'] = $creditor?->getRelatedPartyType()?->getAddress()?->getCountry();
-        $data['creditor_iban'] = $creditor?->getAccount()?->getIban()?->getIban();
+
+        $account = $creditor?->getAccount();
+        if(is_callable([$account, 'getIban'])) $data['creditor_iban'] = $account->getIban()?->getIban();
 
         $data['debtor_name'] = $debtor?->getRelatedPartyType()?->getName();
         $address = $debtor?->getRelatedPartyType()?->getAddress()?->getAddressLines();
         $data['debtor_address'] = is_array($address) ? implode(', ', $address) : $address;
         $data['debtor_country'] = $debtor?->getRelatedPartyType()?->getAddress()?->getCountry();
-        $data['debtor_iban'] = $debtor?->getAccount()?->getIban()?->getIban();
+
+        $account = $debtor?->getAccount();
+        if(is_callable([$account, 'getIban'])) $data['debtor_iban'] = $account->getIban()?->getIban();
 
         $data['transaction_id'] = $detail?->getReference()?->getTransactionId();
         $data['message'] = $detail?->getRemittanceInformation()?->getMessage();
