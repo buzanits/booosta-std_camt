@@ -18,6 +18,6 @@
     "require": {
         "php": ">=8.2.0",
         "genkgo/camt": ">=2.6.0",
-        "booosta/base": "dev-master"
+        "booosta/base": "^4.0"
     }
 }
