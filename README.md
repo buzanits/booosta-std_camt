@@ -62,3 +62,11 @@ Just replace the first line of the above example with:
 $camt = new \booosta\std_camt\Std_camt($xml_file);
 ```
 
+## Use of Stuzza format
+
+Some CAMT files use a special format called "Stuzza". To tell the object to use this format
+just add this line right after the instantiation:
+
+```
+$camt->setMessageFormat('Stuzza');
+```
